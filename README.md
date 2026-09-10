@@ -1,2 +1,2 @@
 # smart_irrigation_system
-using this we can automate our irrigation  so it is highly useful for farmers and we added some basic feauters like rain  sensors and manual override button
+using this we can automate our irrigation  so it is highly useful for farmers and we added some basic feauters like rain  sensors and manual override button ,using dht22 we can see the temp and humidity in lcd screen if provided so we can stil update this  model using the temp and humidity like if less humidity we can on the pump so this is basic model we can still upgrade it thanks!!!!!
