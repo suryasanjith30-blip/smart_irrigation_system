@@ -1,0 +1,400 @@
+{
+  "version": 1,
+  "author": "Smart Irrigation System",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": 20,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -170,
+      "left": 260,
+      "attrs": {
+        "pins": "i2c",
+        "i2cAddress": "0x27"
+      }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "soilA",
+      "top": 40,
+      "left": 330,
+      "attrs": {
+        "value": "3000",
+        "label": "Soil A"
+      }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "soilB",
+      "top": 150,
+      "left": 330,
+      "attrs": {
+        "value": "3000",
+        "label": "Soil B"
+      }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "tank",
+      "top": 260,
+      "left": 330,
+      "attrs": {
+        "value": "2000",
+        "label": "Tank Level"
+      }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr",
+      "top": 390,
+      "left": 325,
+      "attrs": {
+        "lux": "500"
+      }
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht",
+      "top": 400,
+      "left": 40,
+      "attrs": {
+        "temperature": "28",
+        "humidity": "55"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnA",
+      "top": -80,
+      "left": 600,
+      "attrs": {
+        "color": "green",
+        "label": "Manual A",
+        "bounce": "0"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnB",
+      "top": 10,
+      "left": 600,
+      "attrs": {
+        "color": "blue",
+        "label": "Manual B",
+        "bounce": "0"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnBuzz",
+      "top": 100,
+      "left": 600,
+      "attrs": {
+        "color": "yellow",
+        "label": "Buzzer / Reset",
+        "bounce": "0"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "rain",
+      "top": 190,
+      "left": 600,
+      "attrs": {
+        "color": "red",
+        "label": "Rain",
+        "bounce": "0"
+      }
+    },
+    {
+      "type": "wokwi-relay-module",
+      "id": "relayA",
+      "top": -80,
+      "left": 840,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-relay-module",
+      "id": "relayB",
+      "top": 90,
+      "left": 840,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo",
+      "top": 280,
+      "left": 820,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer",
+      "top": 410,
+      "left": 850,
+      "attrs": {
+        "volume": "0.5"
+      }
+    },
+    {
+      "type": "wokwi-gnd",
+      "id": "gnd",
+      "top": 520,
+      "left": 100,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [
+      "esp:TX0",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "esp:RX0",
+      "$serialMonitor:TX",
+      "",
+      []
+    ],
+    [
+      "lcd1:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "lcd1:VCC",
+      "esp:3V3",
+      "red",
+      []
+    ],
+    [
+      "lcd1:SDA",
+      "esp:D21",
+      "green",
+      []
+    ],
+    [
+      "lcd1:SCL",
+      "esp:D22",
+      "blue",
+      []
+    ],
+    [
+      "soilA:VCC",
+      "esp:3V3",
+      "red",
+      []
+    ],
+    [
+      "soilA:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "soilA:SIG",
+      "esp:D34",
+      "green",
+      []
+    ],
+    [
+      "soilB:VCC",
+      "esp:3V3",
+      "red",
+      []
+    ],
+    [
+      "soilB:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "soilB:SIG",
+      "esp:D35",
+      "green",
+      []
+    ],
+    [
+      "tank:VCC",
+      "esp:3V3",
+      "red",
+      []
+    ],
+    [
+      "tank:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "tank:SIG",
+      "esp:D33",
+      "green",
+      []
+    ],
+    [
+      "ldr:VCC",
+      "esp:3V3",
+      "red",
+      []
+    ],
+    [
+      "ldr:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "ldr:AO",
+      "esp:D32",
+      "green",
+      []
+    ],
+    [
+      "dht:VCC",
+      "esp:3V3",
+      "red",
+      []
+    ],
+    [
+      "dht:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "dht:SDA",
+      "esp:D4",
+      "green",
+      []
+    ],
+    [
+      "btnA:1.l",
+      "esp:D27",
+      "green",
+      []
+    ],
+    [
+      "btnA:2.r",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "btnB:1.l",
+      "esp:D16",
+      "green",
+      []
+    ],
+    [
+      "btnB:2.r",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "btnBuzz:1.l",
+      "esp:D17",
+      "green",
+      []
+    ],
+    [
+      "btnBuzz:2.r",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "rain:1.l",
+      "esp:D14",
+      "green",
+      []
+    ],
+    [
+      "rain:2.r",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "relayA:VCC",
+      "esp:5V",
+      "red",
+      []
+    ],
+    [
+      "relayA:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "relayA:IN",
+      "esp:D25",
+      "green",
+      []
+    ],
+    [
+      "relayB:VCC",
+      "esp:5V",
+      "red",
+      []
+    ],
+    [
+      "relayB:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "relayB:IN",
+      "esp:D26",
+      "green",
+      []
+    ],
+    [
+      "servo:V+",
+      "esp:5V",
+      "red",
+      []
+    ],
+    [
+      "servo:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "servo:PWM",
+      "esp:D18",
+      "green",
+      []
+    ],
+    [
+      "buzzer:1",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "buzzer:2",
+      "esp:D13",
+      "green",
+      []
+    ]
+  ],
+  "serialMonitor": {
+    "display": "terminal"
+  },
+  "dependencies": {}
+}
